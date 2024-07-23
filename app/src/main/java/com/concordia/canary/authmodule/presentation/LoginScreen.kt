@@ -35,6 +35,9 @@ import com.concordia.canary.authmodule.presentation.components.TextEntryModule
 import com.concordia.canary.authmodule.presentation.viewmodel.LoginViewModel
 import com.concordia.canary.authmodule.ui.theme.gray
 import com.concordia.canary.authmodule.ui.theme.orange
+import com.concordia.canary.authmodule.ui.theme.padding
+import com.concordia.canary.authmodule.ui.theme.shadow
+import com.concordia.canary.authmodule.ui.theme.spacing
 import com.concordia.canary.authmodule.ui.theme.white
 import com.concordia.canary.authmodule.ui.theme.whiteGray
 import com.concordia.canary.authmodule.ui.theme.whiteGrayOrange
@@ -45,6 +48,7 @@ fun LoginScreen(
     onNavigateToRegisterScreen: () -> Unit,
     loginVieModel: LoginViewModel = hiltViewModel(),
 ) {
+
 
     NavDestinationHelper(shouldNavigate = {
         loginVieModel.loginState.isSuccessfullyLoggedIn
@@ -96,9 +100,17 @@ fun LoginScreen(
             modifier = Modifier
                 .padding(top = 200.dp)
                 .fillMaxWidth()
-                .shadow(5.dp, RoundedCornerShape(15.dp))
-                .background(whiteGray, RoundedCornerShape(15.dp))
-                .padding(10.dp, 15.dp, 10.dp, 5.dp)
+                .shadow(
+                    MaterialTheme.shadow.normalShadow,
+                    RoundedCornerShape(MaterialTheme.spacing.mediumRadius)
+                )
+                .background(whiteGray, RoundedCornerShape(MaterialTheme.spacing.mediumRadius))
+                .padding(
+                    MaterialTheme.spacing.mediumSpacing,
+                    MaterialTheme.spacing.largeSpacing,
+                    MaterialTheme.spacing.mediumSpacing,
+                    MaterialTheme.spacing.smallSpacing
+                )
                 .align(Alignment.TopCenter)
         )
 
@@ -111,9 +123,10 @@ fun LoginScreen(
                 .height(250.dp)
                 .align(Alignment.BottomCenter)
         )
+
         Row(
             modifier = Modifier
-                .padding(bottom = 10.dp)
+                .padding(bottom = MaterialTheme.padding.smallPadding)
                 .align(Alignment.BottomCenter),
             horizontalArrangement = Arrangement.Center
         ) {
@@ -125,7 +138,7 @@ fun LoginScreen(
             Text(
                 text = "Register!",
                 modifier = Modifier
-                    .padding(start = 5.dp)
+                    .padding(start = MaterialTheme.padding.smallPadding)
                     .clickable {
                         onNavigateToRegisterScreen()
                     },
@@ -134,7 +147,6 @@ fun LoginScreen(
                 style = MaterialTheme.typography.titleLarge
             )
         }
-
     }
 }
 
@@ -155,7 +167,7 @@ fun LoginContainer(
 ) {
     Column(
         modifier = modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(15.dp)
+        verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.largeSpacing)
     ) {
 
         TextEntryModule(
@@ -195,7 +207,7 @@ fun LoginContainer(
 
         Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(5.dp)
+            verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.smallSpacing)
         ) {
             CustomButton(
                 text = "Login",
@@ -207,7 +219,10 @@ fun LoginContainer(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(45.dp)
-                    .shadow(5.dp, RoundedCornerShape(25.dp))
+                    .shadow(
+                        MaterialTheme.shadow.normalShadow,
+                        RoundedCornerShape(MaterialTheme.spacing.largeRadius)
+                    )
 
             )
             Text(

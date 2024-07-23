@@ -35,6 +35,8 @@ import com.concordia.canary.authmodule.presentation.components.TextEntryModule
 import com.concordia.canary.authmodule.presentation.viewmodel.RegisterViewModel
 import com.concordia.canary.authmodule.ui.theme.gray
 import com.concordia.canary.authmodule.ui.theme.orange
+import com.concordia.canary.authmodule.ui.theme.padding
+import com.concordia.canary.authmodule.ui.theme.spacing
 import com.concordia.canary.authmodule.ui.theme.white
 import com.concordia.canary.authmodule.ui.theme.whiteGray
 import com.concordia.canary.authmodule.ui.theme.whiteGrayOrange
@@ -100,9 +102,17 @@ fun RegisterScreen(
             modifier = Modifier
                 .padding(top = 200.dp)
                 .fillMaxWidth()
-                .shadow(5.dp, RoundedCornerShape(15.dp))
-                .background(whiteGray, RoundedCornerShape(15.dp))
-                .padding(10.dp, 15.dp, 10.dp, 5.dp)
+                .shadow(
+                    MaterialTheme.padding.smallPadding,
+                    RoundedCornerShape(MaterialTheme.spacing.largeRadius)
+                )
+                .background(whiteGray, RoundedCornerShape(MaterialTheme.spacing.mediumRadius))
+                .padding(
+                    MaterialTheme.spacing.mediumSpacing,
+                    MaterialTheme.spacing.largeSpacing,
+                    MaterialTheme.spacing.mediumSpacing,
+                    MaterialTheme.spacing.smallSpacing
+                )
                 .align(Alignment.TopCenter)
         )
 
@@ -117,7 +127,7 @@ fun RegisterScreen(
         )
         Row(
             modifier = Modifier
-                .padding(bottom = 10.dp)
+                .padding(bottom = MaterialTheme.padding.mediumPadding)
                 .align(Alignment.BottomCenter),
             horizontalArrangement = Arrangement.Center
         ) {
@@ -129,7 +139,7 @@ fun RegisterScreen(
             Text(
                 text = "Login",
                 modifier = Modifier
-                    .padding(start = 5.dp)
+                    .padding(start = MaterialTheme.padding.smallPadding)
                     .clickable {
                         onNavigateToLoginScreen()
                     },
@@ -217,7 +227,7 @@ fun RegisterContainer(
 
         Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(5.dp)
+            verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.smallSpacing)
         ) {
             CustomButton(
                 text = "Register",
@@ -229,7 +239,10 @@ fun RegisterContainer(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(45.dp)
-                    .shadow(5.dp, RoundedCornerShape(25.dp))
+                    .shadow(
+                        MaterialTheme.spacing.smallSpacing,
+                        RoundedCornerShape(MaterialTheme.spacing.largeRadius)
+                    )
 
             )
             Text(

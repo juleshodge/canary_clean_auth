@@ -28,6 +28,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.concordia.canary.authmodule.ui.theme.orange
+import com.concordia.canary.authmodule.ui.theme.shadow
+import com.concordia.canary.authmodule.ui.theme.spacing
 import com.concordia.canary.authmodule.ui.theme.white
 
 @Composable
@@ -54,10 +56,13 @@ fun TextEntryModule(
         TextField(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 3.dp)
-                .border(0.5.dp, textColor, RoundedCornerShape(25.dp))
+                .padding(top = MaterialTheme.shadow.smallShadow)
+                .border(0.5.dp, textColor, RoundedCornerShape(MaterialTheme.spacing.largeRadius))
                 .height(50.dp)
-                .shadow(3.dp, RoundedCornerShape(25.dp)),
+                .shadow(
+                    MaterialTheme.shadow.smallShadow,
+                    RoundedCornerShape(MaterialTheme.spacing.largeRadius)
+                ),
             value = textValue,
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = white,
@@ -66,7 +71,7 @@ fun TextEntryModule(
                 unfocusedIndicatorColor = Color.Transparent
             ),
             onValueChange = onValueChanged,
-            shape = RoundedCornerShape(25.dp),
+            shape = RoundedCornerShape(MaterialTheme.spacing.largeRadius),
             singleLine = true,
             leadingIcon = {
                 Icon(

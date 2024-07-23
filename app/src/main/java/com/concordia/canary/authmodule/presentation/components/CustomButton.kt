@@ -13,8 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.concordia.canary.authmodule.ui.theme.orange
+import com.concordia.canary.authmodule.ui.theme.spacing
 import com.concordia.canary.authmodule.ui.theme.white
 
 @Composable
@@ -32,7 +32,7 @@ fun CustomButton(
         onClick = {
             onButtonClick()
         },
-        shape = RoundedCornerShape(25.dp),
+        shape = RoundedCornerShape(MaterialTheme.spacing.largeRadius),
         colors = ButtonDefaults.buttonColors(
             containerColor = btnBackGroundColor,
             contentColor = contentColor,
@@ -44,7 +44,7 @@ fun CustomButton(
         if (isLoading) {
             CircularProgressIndicator(
                 color = contentColor,
-                modifier = Modifier.size(20.dp)
+                modifier = Modifier.size(MaterialTheme.spacing.largeRadius)
             )
         } else {
             Text(text = text, style = MaterialTheme.typography.bodyMedium)

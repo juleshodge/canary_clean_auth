@@ -8,12 +8,14 @@ import androidx.compose.runtime.setValue
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.concordia.canary.authmodule.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 import com.concordia.canary.authmodule.domain.model.RegisterInputValidationType
 import com.concordia.canary.authmodule.domain.repository.AuthRepository
 import com.concordia.canary.authmodule.domain.use_case.ValidateRegisterInputUseCase
 import com.concordia.canary.authmodule.presentation.state.RegisterState
+import com.concordia.canary.authmodule.util.UiText
 
 
 @HiltViewModel
@@ -79,14 +81,14 @@ class RegisterViewModel @Inject constructor(
         registerState = when (result) {
             RegisterInputValidationType.EmptyField -> {
                 registerState.copy(
-                    errorMessageInput = "Empty fields left",
+                    errorMessageInput = UiText.StringResource(R.string.register_empty_field_left),
                     isInputValid = false
                 )
             }
 
             RegisterInputValidationType.NoEmail -> {
                 registerState.copy(
-                    errorMessageInput = "No valid email",
+                    errorMessageInput = UiText.StringResource(R.string.register_no_valid_email_err),
                     isInputValid = false
                 )
             }
@@ -100,35 +102,35 @@ class RegisterViewModel @Inject constructor(
 
             RegisterInputValidationType.PasswordsDoNotMatch -> {
                 registerState.copy(
-                    errorMessageInput = "Passwords do not match",
+                    errorMessageInput = UiText.StringResource(R.string.register_passwords_nomatch_err),
                     isInputValid = false
                 )
             }
 
             RegisterInputValidationType.PasswordUpperCaseMissing -> {
                 registerState.copy(
-                    errorMessageInput = "password upper case missing",
+                    errorMessageInput = UiText.StringResource(R.string.register_passwords_upper_case_err),
                     isInputValid = false
                 )
             }
 
             RegisterInputValidationType.PasswordNumberMissing -> {
                 registerState.copy(
-                    errorMessageInput = "Password missing number",
+                    errorMessageInput = UiText.StringResource(R.string.register_password_number_missing),
                     isInputValid = false
                 )
             }
 
             RegisterInputValidationType.PasswordSpecialCharMissing -> {
                 registerState.copy(
-                    errorMessageInput = "Password missing special character",
+                    errorMessageInput = UiText.StringResource(R.string.register_password_missing_special_err),
                     isInputValid = false
                 )
             }
 
             RegisterInputValidationType.PasswordTooShort -> {
                 registerState.copy(
-                    errorMessageInput = "Password too short",
+                    errorMessageInput = UiText.StringResource(R.string.register_password_too_short_err),
                     isInputValid = false
                 )
             }

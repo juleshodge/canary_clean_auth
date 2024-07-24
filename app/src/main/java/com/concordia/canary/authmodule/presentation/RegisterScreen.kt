@@ -40,6 +40,7 @@ import com.concordia.canary.authmodule.ui.theme.spacing
 import com.concordia.canary.authmodule.ui.theme.white
 import com.concordia.canary.authmodule.ui.theme.whiteGray
 import com.concordia.canary.authmodule.ui.theme.whiteGrayOrange
+import com.concordia.canary.authmodule.util.UiText
 
 @Composable
 fun RegisterScreen(
@@ -164,7 +165,7 @@ fun RegisterContainer(
     onRegisterClick: () -> Unit,
     isPasswordShown: () -> Boolean,
     onTrailingPasswordIconClicked: () -> Unit,
-    errorHint: () -> String?,
+    errorHint: () -> UiText?,
     isLoading: () -> Boolean,
     modifier: Modifier = Modifier
 ) {
@@ -246,7 +247,7 @@ fun RegisterContainer(
 
             )
             Text(
-                text = errorHint() ?: "",
+                text = errorHint()?.asString() ?: "",
                 color = orange,
                 style = MaterialTheme.typography.bodyMedium
             )

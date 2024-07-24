@@ -7,6 +7,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.concordia.canary.authmodule.R
+import kotlinx.coroutines.launch
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 
@@ -14,7 +16,7 @@ import com.concordia.canary.authmodule.domain.use_case.ValidateLoginInputUseCase
 import com.concordia.canary.authmodule.presentation.state.LoginState
 import com.concordia.canary.authmodule.domain.model.LoginInputValidationType
 import com.concordia.canary.authmodule.domain.repository.AuthRepository
-import kotlinx.coroutines.launch
+import com.concordia.canary.authmodule.util.UiText
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
@@ -70,14 +72,14 @@ class LoginViewModel @Inject constructor(
         loginState = when (result) {
             LoginInputValidationType.EmptyField -> {
                 loginState.copy(
-                    errorMessageInput = "Empty fields left",
+                    errorMessageInput = UiText.StringResource(R.string.empty_fields_login_err),
                     isInputValid = false
                 )
             }
 
             LoginInputValidationType.NoEmail -> {
                 loginState.copy(
-                    errorMessageInput = "No valid email",
+                    errorMessageInput = UiText.StringResource(R.string.login_no_email_err),
                     isInputValid = false
                 )
             }

@@ -41,6 +41,7 @@ import com.concordia.canary.authmodule.ui.theme.spacing
 import com.concordia.canary.authmodule.ui.theme.white
 import com.concordia.canary.authmodule.ui.theme.whiteGray
 import com.concordia.canary.authmodule.ui.theme.whiteGrayOrange
+import com.concordia.canary.authmodule.util.UiText
 
 @Composable
 fun LoginScreen(
@@ -48,8 +49,6 @@ fun LoginScreen(
     onNavigateToRegisterScreen: () -> Unit,
     loginVieModel: LoginViewModel = hiltViewModel(),
 ) {
-
-
     NavDestinationHelper(shouldNavigate = {
         loginVieModel.loginState.isSuccessfullyLoggedIn
     }, destination = {
@@ -161,7 +160,7 @@ fun LoginContainer(
     onLoginButtonClick: () -> Unit,
     isPasswordShown: () -> Boolean,
     onTrailingPasswordIconClicked: () -> Unit,
-    errorHint: () -> String?,
+    errorHint: () -> UiText?,
     isLoading: () -> Boolean,
     modifier: Modifier = Modifier
 ) {
@@ -226,7 +225,7 @@ fun LoginContainer(
 
             )
             Text(
-                text = errorHint() ?: "",
+                text = errorHint()?.asString() ?: "",
                 color = orange,
                 style = MaterialTheme.typography.bodyMedium
             )

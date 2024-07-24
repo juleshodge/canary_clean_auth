@@ -1,7 +1,8 @@
 package com.concordia.canary.authmodule.data
 
-import com.concordia.canary.authmodule.domain.repository.AuthRepository
 import kotlinx.coroutines.delay
+
+import com.concordia.canary.authmodule.domain.repository.AuthRepository
 
 class AuthRepositoryImpl : AuthRepository {
     override suspend fun login(email: String, password: String): Boolean {

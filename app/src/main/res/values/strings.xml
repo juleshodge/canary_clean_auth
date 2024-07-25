@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AuthModule</string>
+    <string name="empty_fields_login_err">Empty Fields Left</string>
+    <string name="login_no_email_err">No Valid Email Entered</string>
+    <string name="register_empty_field_left">Empty Fields Left</string>
+    <string name="register_no_valid_email_err">Email Not Valid</string>
+    <string name="register_passwords_nomatch_err">Passwords Do Not Math</string>
+    <string name="register_passwords_upper_case_err">Password Upper Case Missing</string>
+    <string name="register_password_number_missing">Password Missing Number</string>
+    <string name="register_password_missing_special_err">Password Missing Special Character</string>
+    <string name="register_password_too_short_err">Password Too Short</string>
+</resources>

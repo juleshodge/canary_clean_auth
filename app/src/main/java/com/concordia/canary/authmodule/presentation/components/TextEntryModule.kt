@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -58,7 +57,7 @@ fun TextEntryModule(
                 .fillMaxWidth()
                 .padding(top = MaterialTheme.shadow.smallShadow)
                 .border(0.5.dp, textColor, RoundedCornerShape(MaterialTheme.spacing.largeRadius))
-                .height(50.dp)
+
                 .shadow(
                     MaterialTheme.shadow.smallShadow,
                     RoundedCornerShape(MaterialTheme.spacing.largeRadius)

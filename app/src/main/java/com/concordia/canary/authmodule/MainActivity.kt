@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.toArgb
 import dagger.hilt.android.AndroidEntryPoint
 import com.concordia.canary.authmodule.ui.theme.AuthModuleTheme
 import com.concordia.canary.authmodule.ui.theme.gray
+import com.concordia.canary.authmodule.ui.theme.rememberWindowSizeType
 import com.concordia.canary.authmodule.util.Navigation
 
 @AndroidEntryPoint
@@ -24,7 +25,8 @@ class MainActivity : ComponentActivity() {
 
         enableEdgeToEdge()
         setContent {
-            AuthModuleTheme {
+            val windowSizeType = rememberWindowSizeType()
+            AuthModuleTheme(windowSizeType) {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Navigation(modifier = Modifier.padding(innerPadding))
                 }
